@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get NUR — the exact steps, including the awkward ones</title>
+<meta name="description" content="How to acquire Noor (NUR) on Arc Network: bridging USDC, swapping on Uniswap, and the honest numbers you should read first.">
+<link rel="icon" href="../brand/favicon.png">
+<style>
+  :root{--navy:#0A1B33;--gold:#FFCF6B;--gold-2:#D98A15;--cream:#FFFBEE;
+    --muted:#7C879B;--line:rgba(255,255,255,.10);--card:rgba(255,255,255,.035);
+    --ok:#5BE49B;--warn:#FFB37A;--err:#FF8A8A}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--navy);color:#E8ECF4;
+    font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+  code,.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.9em}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,27,51,.9);backdrop-filter:blur(10px);z-index:20}
+  .bar{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px;height:68px}
+  .bar img{width:34px;height:34px;border-radius:50%}
+  .bar .brand{font-weight:700;letter-spacing:.2em;font-size:14px;color:#fff}
+  .bar nav{margin-left:auto;display:flex;gap:20px;font-size:14px}
+  .bar nav a{color:#B9C4D6}.bar nav a:hover{color:#fff}
+  .wrap{max-width:1000px;margin:0 auto;padding:40px 24px 90px}
+  h1{font-size:clamp(28px,4.5vw,42px);margin:0 0 12px;color:#fff;letter-spacing:-.02em}
+  h1 em{font-style:normal;background:linear-gradient(100deg,var(--cream),var(--gold) 45%,var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{color:#AEBBd0;max-width:64ch;margin:0 0 30px}
+  h2{font-size:19px;color:#fff;margin:38px 0 10px;letter-spacing:-.01em}
+  p{color:#B6C2D6}
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:18px 0 0}
+  ol.steps>li{counter-increment:s;position:relative;padding:0 0 26px 50px;color:#B6C2D6}
+  ol.steps>li::before{content:counter(s);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:50%;
+    background:linear-gradient(100deg,var(--gold),var(--gold-2));color:#20160A;font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center}
+  ol.steps>li b{color:#fff;display:block;margin-bottom:4px;font-size:15.5px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0}
+  .note{border-left:3px solid var(--gold);background:rgba(255,207,107,.06);padding:14px 18px;border-radius:0 10px 10px 0;color:#D6DEEA;font-size:14.5px;margin:20px 0}
+  .bad{border-left-color:var(--err);background:rgba(255,138,138,.07)}
+  .good{border-left-color:var(--ok);background:rgba(91,228,155,.06)}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin:14px 0}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .addr{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#081527;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:10px 0}
+  .addr .v{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;word-break:break-all}
+  .copy{margin-left:auto;background:transparent;border:1px solid var(--line);color:#B9C4D6;border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;font-family:inherit}
+  .copy:hover{border-color:var(--gold);color:var(--gold)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:11px;font-weight:600;font-size:14.5px;border:1px solid transparent}
+  .btn-primary{background:linear-gradient(100deg,var(--gold),var(--gold-2));color:#20160A}
+  .btn-primary:hover{filter:brightness(1.07);text-decoration:none}
+  .btn-ghost{border-color:var(--line);color:#DCE3EF;background:var(--card)}
+  .btn-ghost:hover{border-color:rgba(255,207,107,.5);text-decoration:none}
+  footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <img src="../brand/logo-200.png" alt="Noor">
+    <span class="brand">NOOR</span>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../pay.html">Pay</a>
+      <a href="https://dexscreener.com/arc/0xa8dc7eba119949500f8e18fd086a0bf151095910" target="_blank" rel="noopener">Chart ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <h1>Getting NUR — <em>the exact steps, including the awkward ones</em></h1>
+  <p class="lede">
+    Arc is a young chain. Buying anything on it takes one step that other chains
+    don't: getting USDC <em>onto</em> Arc. This page walks through it honestly,
+    including the parts that are inconvenient.
+  </p>
+
+  <div class="note bad">
+    <b>Read this first.</b> The NUR/USDC pool holds <b>$2.55</b>. A $1 buy moves the
+    price roughly 40%. A $5 buy moves it about 200%. If you are thinking of this as
+    an investment, stop — it is not one. If you are curious what a real pool on a
+    new chain behaves like, $1 is plenty.
+  </div>
+
+  <h2>The honest numbers</h2>
+  <table>
+    <thead><tr><th>Measure</th><th class="num">Value</th></tr></thead>
+    <tbody>
+      <tr><td>USDC in the pool</td><td class="num">2.55</td></tr>
+      <tr><td>NUR in the pool</td><td class="num">2,451,125</td></tr>
+      <tr><td>Price</td><td class="num">$0.00000104</td></tr>
+      <tr><td>Cost to you of a $1 buy (price impact)</td><td class="num">≈ 40%</td></tr>
+      <tr><td>“Fully-diluted value” shown by aggregators</td><td class="num">$1,040</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:14px;color:var(--muted)">
+    That $1,040 is arithmetic on $2.55 of real capital. It is not a valuation and
+    no one paid it.
+  </p>
+
+  <h2>What you need</h2>
+  <ul>
+    <li>An EVM wallet (MetaMask, Rabby, anything that speaks WalletConnect)</li>
+    <li>USDC — about $2 is plenty</li>
+    <li>A few cents of that USDC for gas. On Arc, gas <em>is</em> USDC</li>
+  </ul>
+
+  <h2>The steps</h2>
+  <ol class="steps">
+    <li>
+      <b>Add Arc to your wallet</b>
+      Chain ID <span class="mono">5042</span>, RPC <span class="mono">https://rpc.mainnet.arc.io</span>,
+      symbol <span class="mono">USDC</span>, explorer <span class="mono">https://explorer.arc.io</span>.
+      Your wallet may warn that the gas symbol is not ETH — that is expected, Arc uses USDC.
+    </li>
+    <li>
+      <b>Get USDC onto Arc — this is the awkward step</b>
+      Arc has no faucet, so the USDC must come from somewhere real. Two routes that work:
+      <div class="card" style="margin-top:12px">
+        <p style="margin:0 0 8px"><b>Route A — an exchange that lists Arc.</b> Kraken and Upbit were in Arc's launch cohort. Withdraw USDC directly to your Arc address. This is the simplest route by a wide margin.</p>
+        <p style="margin:0"><b>Route B — bridge with Circle CCTP.</b> Hold USDC on Base, Ethereum, Arbitrum or another supported chain and bridge it across. Use only interfaces linked from <a href="https://developers.circle.com/cctp" target="_blank" rel="noopener">Circle's own CCTP documentation</a> — fake "Arc bridge" sites exist and they take your money. <b>Send a small test amount first.</b></p>
+      </div>
+      <div class="note bad" style="margin-top:12px">
+        Sending USDC to an Arc address on the wrong network means permanent loss.
+        Arc is not Base, not Ethereum, not Arbitrum.
+      </div>
+    </li>
+    <li>
+      <b>Swap USDC for NUR</b>
+      The pair is live on Uniswap v2 on Arc.
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://app.uniswap.org/swap?chain=arc&outputCurrency=0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f" target="_blank" rel="noopener">Open Uniswap ↗</a>
+        <a class="btn btn-ghost" href="https://dexscreener.com/arc/0xa8dc7eba119949500f8e18fd086a0bf151095910" target="_blank" rel="noopener">See the chart ↗</a>
+      </div>
+      <p style="margin:12px 0 0;font-size:14px;color:var(--muted)">
+        Set a slippage tolerance of 5–10%. On a pool this thin, the default will
+        often fail — that is the pool, not a bug.
+      </p>
+    </li>
+    <li>
+      <b>Add NUR to your wallet so it is visible</b>
+      Use the <a href="../pay.html">Noor Pay</a> page — "Add NUR to wallet" does it in one click,
+      or add the contract address manually with 18 decimals.
+    </li>
+  </ol>
+
+  <h2>The addresses</h2>
+  <div class="addr"><span class="mono" style="color:var(--muted);min-width:52px">Token</span><span class="v">0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f</span><button class="copy" data-copy="0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f">Copy</button></div>
+  <div class="addr"><span class="mono" style="color:var(--muted);min-width:52px">Pair</span><span class="v">0xa8dC7Eba119949500F8e18fD086a0bF151095910</span><button class="copy" data-copy="0xa8dC7Eba119949500F8e18fD086a0bF151095910">Copy</button></div>
+  <div class="addr"><span class="mono" style="color:var(--muted);min-width:52px">Network</span><span class="v">Arc Mainnet — chain ID 5042</span></div>
+
+  <h2>If you would rather not trade at all</h2>
+  <div class="note good">
+    That is a completely reasonable answer, and probably the correct one. NUR has
+    no utility yet. A payment tool exists, a market exists, and the code is
+    verified — but none of that is a reason for <em>you</em> to spend money.
+    Watching from a distance costs nothing, and everything here is public:
+    <a href="https://jadjbara3-cpu.github.io/noor/">the project page</a> ·
+    <a href="https://github.com/jadjbara3-cpu/noor">the repository</a>.
+  </div>
+</div>
+
+<footer>
+  Not financial advice. Noor is an independent project, not affiliated with Circle, Arc, or Uniswap.<br>
+  Do not send more than you are willing to lose entirely.
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(b.dataset.copy).then(function () {
+      var t = b.textContent; b.textContent = 'Copied';
+      setTimeout(function () { b.textContent = t; }, 1400);
+    });
+  });
+});
+</script>
+</body>
+</html>
