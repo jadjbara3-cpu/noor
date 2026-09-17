@@ -1,8 +1,8 @@
 {
   "name": "Noor (NUR)",
-  "timestamp": "2026-09-17T21:00:00.000Z",
+  "timestamp": "2026-09-17T21:20:00.000Z",
   "version": { "major": 1, "minor": 0, "patch": 0 },
-  "logoURI": "https://RAW_HOST/brand/logo-200.png",
+  "logoURI": "https://jadjbara3-cpu.github.io/noor/brand/logo-200.png",
   "keywords": ["arc", "noor", "nur", "currency", "circle"],
   "tokens": [
     {
@@ -11,12 +11,12 @@
       "name": "Noor",
       "symbol": "NUR",
       "decimals": 18,
-      "logoURI": "https://RAW_HOST/brand/logo-200.png",
+      "logoURI": "https://jadjbara3-cpu.github.io/noor/brand/logo-200.png",
       "extensions": {
-        "website": "https://RAW_HOST/",
-        "description": "Noor (NUR) is an ERC-20 digital currency on Arc Network, Circle's USDC-native Layer 1. Fixed supply of 1,000,000,000, zero inflation, verifiable on-chain.",
+        "website": "https://jadjbara3-cpu.github.io/noor/",
+        "description": "Noor (NUR) is an ERC-20 digital currency on Arc Network, Circle's USDC-native Layer 1. Fixed supply of 1,000,000,000, no inflation, source verified on-chain.",
         "explorer": "https://explorer.arc.io/address/0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f",
-        "bridge": "https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910"
+        "market": "https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910"
       }
     }
   ]
