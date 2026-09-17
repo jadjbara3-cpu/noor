@@ -1,3 +1,5 @@
+> **Live:** [Website](https://jadjbara3-cpu.github.io/noor/) · [Token list](https://jadjbara3-cpu.github.io/noor/brand/tokenlist.json) · [Verified contract](https://explorer.arc.io/address/0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f#code) · [Market](https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910)
+
 # Noor (NUR) — a digital currency on Arc Network
 
 **Noor** is an ERC-20 digital currency deployed on **Arc Network**, Circle's
