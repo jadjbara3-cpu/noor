@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noor (NUR) — a digital currency on Arc Network</title>
+<meta name="description" content="Noor (NUR) is an ERC-20 digital currency on Arc Network. Fixed supply of 1,000,000,000, zero inflation, source verified on-chain.">
+<link rel="icon" href="brand/favicon.png">
+<meta property="og:title" content="Noor (NUR) — a digital currency on Arc Network">
+<meta property="og:description" content="Fixed supply. Zero inflation. Verified source. Tradeable on Uniswap.">
+<meta property="og:image" content="brand/logo-512.png">
+<style>
+  :root{
+    --navy:#0A1B33; --navy-2:#0E2440; --blue:#113055; --arc:#1A4E80;
+    --gold:#FFCF6B; --gold-2:#D98A15; --cream:#FFFBEE;
+    --ink:#0A1B33; --muted:#7C879B; --line:rgba(255,255,255,.10);
+    --card:rgba(255,255,255,.035);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--navy);color:#E8ECF4;
+    font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+  code,.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.92em}
+
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,27,51,.88);backdrop-filter:blur(10px);z-index:20}
+  .bar{display:flex;align-items:center;gap:16px;height:72px}
+  .bar img{width:38px;height:38px;border-radius:50%}
+  .brand{font-weight:700;letter-spacing:.22em;font-size:15px;color:#fff}
+  .bar nav{margin-left:auto;display:flex;gap:22px;font-size:14px}
+  .bar nav a{color:#B9C4D6}
+  .bar nav a:hover{color:#fff}
+
+  .hero{padding:88px 0 64px;display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center}
+  .eyebrow{color:var(--gold);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 14px}
+  h1{font-size:clamp(38px,6vw,60px);line-height:1.05;margin:0 0 18px;letter-spacing:-.02em;color:#fff}
+  h1 em{font-style:normal;background:linear-gradient(100deg,var(--cream),var(--gold) 45%,var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:19px;color:#AEBBd0;max-width:56ch;margin:0 0 30px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:11px;font-weight:600;font-size:15px;border:1px solid transparent;transition:.15s}
+  .btn-primary{background:linear-gradient(100deg,var(--gold),var(--gold-2));color:#20160A}
+  .btn-primary:hover{filter:brightness(1.07);text-decoration:none}
+  .btn-ghost{border-color:var(--line);color:#DCE3EF;background:var(--card)}
+  .btn-ghost:hover{border-color:rgba(255,207,107,.5);text-decoration:none}
+  .hero img.mark{width:230px;height:230px;border-radius:50%;box-shadow:0 26px 70px rgba(0,0,0,.5)}
+
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-size:26px;margin:0 0 8px;color:#fff;letter-spacing:-.01em}
+  .sub{color:var(--muted);margin:0 0 34px;font-size:15px}
+
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .card h3{margin:0 0 8px;font-size:16px;color:#fff}
+  .card p{margin:0;color:#9FADC4;font-size:14.5px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .stat b{display:block;font-size:25px;color:#fff;letter-spacing:-.01em;margin-bottom:4px}
+  .stat span{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.09em}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  tbody tr:last-child td{border-bottom:none}
+
+  .addr{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#081527;border:1px solid var(--line);border-radius:11px;padding:13px 16px;margin:0 0 10px}
+  .addr .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;min-width:84px}
+  .addr .v{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:#E8ECF4;word-break:break-all}
+  .copy{margin-left:auto;background:transparent;border:1px solid var(--line);color:#B9C4D6;border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer}
+  .copy:hover{border-color:var(--gold);color:var(--gold)}
+
+  .note{border-left:3px solid var(--gold);background:rgba(255,207,107,.06);padding:14px 18px;border-radius:0 10px 10px 0;color:#D6DEEA;font-size:14.5px;margin:22px 0 0}
+  .warn{border-left-color:#FF9B6B;background:rgba(255,155,107,.07)}
+
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+  ol.steps li{counter-increment:s;position:relative;padding:0 0 20px 46px;color:#B6C2D6;font-size:15px}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:29px;height:29px;border-radius:50%;background:linear-gradient(100deg,var(--gold),var(--gold-2));color:#20160A;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:13.5px}
+  footer p{margin:0 0 10px}
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr;padding:56px 0 40px}
+    .hero img.mark{width:150px;height:150px;order:-1}
+    .bar nav{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <img src="brand/logo-200.png" alt="Noor">
+    <span class="brand">NOOR</span>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#buy">Get NUR</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#verify">Verify</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Arc Network · Chain 5042</p>
+      <h1>Noor — <em>a currency built to hold its promise.</em></h1>
+      <p class="lede">
+        NUR is an ERC-20 digital currency on Arc, Circle's USDC-native Layer 1.
+        One billion tokens. A ceiling that can never be raised. Source code anyone
+        can read, matching the bytecode running on chain.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://explorer.arc.io/address/0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f" target="_blank" rel="noopener">View contract ↗</a>
+        <a class="btn btn-ghost" href="#buy">How to get NUR</a>
+      </div>
+    </div>
+    <img class="mark" src="brand/logo-512.png" alt="Noor mark">
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <h2>What Noor is</h2>
+    <p class="sub">A fixed-supply digital currency, and nothing it does not claim to be.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Fixed supply</h3><p>1,000,000,000 NUR. The cap is set in the constructor and cannot be changed — not by the owner, not by anyone. <span class="mono">remainingMintable()</span> returns zero.</p></div>
+      <div class="card"><h3>No inflation, ever</h3><p>The only way supply grows is by re-issuing tokens that were previously burned. Total supply can never exceed one billion.</p></div>
+      <div class="card"><h3>Verifiable source</h3><p>The Solidity source is published on the Arc explorer and matches the deployed runtime bytecode exactly — an exact-match verification, not a partial one.</p></div>
+      <div class="card"><h3>Gasless approvals</h3><p>EIP-2612 <span class="mono">permit</span> lets you approve a spender with a signature instead of a transaction. No gas to approve.</p></div>
+      <div class="card"><h3>Burnable</h3><p>Any holder can destroy their own tokens, permanently reducing supply. Deflation is available to everyone, not just the issuer.</p></div>
+      <div class="card"><h3>Bounded issuer powers</h3><p>Fees default to zero and can never exceed 5%. Ownership transfers need two steps. Ownership can be renounced to freeze every owner power forever.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="wrap">
+    <h2>The numbers</h2>
+    <p class="sub">Read directly from Arc mainnet.</p>
+    <div class="grid g4">
+      <div class="stat"><b>1,000,000,000</b><span>Total supply (NUR)</span></div>
+      <div class="stat"><b>1,000,000,000</b><span>Hard cap (NUR)</span></div>
+      <div class="stat"><b>0</b><span>Remaining mintable</span></div>
+      <div class="stat"><b>18</b><span>Decimals</span></div>
+    </div>
+    <div class="note">
+      Noor is an early, small project. The Uniswap pool holds a few dollars of
+      liquidity, so any meaningful trade moves the price a long way. That is
+      stated here on purpose: check the pool yourself before you trade.
+    </div>
+  </div>
+</section>
+
+<section id="buy">
+  <div class="wrap">
+    <h2>How to get NUR</h2>
+    <p class="sub">Three ways, in order of how little they cost you.</p>
+    <ol class="steps">
+      <li><b>Swap on Uniswap (Arc).</b> The NUR/USDC pair is live on Uniswap v2 on Arc.
+        Open the <a href="https://app.uniswap.org/swap?chain=arc&amp;outputCurrency=0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f" target="_blank" rel="noopener">Uniswap app</a>
+        with the token address below, or inspect the
+        <a href="https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910" target="_blank" rel="noopener">pair on the explorer</a>.</li>
+      <li><b>Receive a transfer.</b> NUR is a standard ERC-20 — anyone can send it to
+        your Arc address from any wallet that supports Arc.</li>
+      <li><b>Bridge USDC to Arc, then swap.</b> Arc has no faucet. Circle's CCTP moves
+        USDC from Base, Ethereum, Arbitrum and others to Arc natively.</li>
+    </ol>
+
+    <div style="margin-top:34px">
+      <div class="addr"><span class="k">Token</span><span class="v" id="tok">0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f</span><button class="copy" data-copy="0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f">Copy</button></div>
+      <div class="addr"><span class="k">Pair</span><span class="v">0xa8dC7Eba119949500F8e18fD086a0bF151095910</span><button class="copy" data-copy="0xa8dC7Eba119949500F8e18fD086a0bF151095910">Copy</button></div>
+      <div class="addr"><span class="k">Network</span><span class="v">Arc Mainnet — chain ID 5042 — RPC https://rpc.mainnet.arc.io</span></div>
+    </div>
+
+    <div class="note warn">
+      Add Arc to your wallet before sending anything. Sending USDC to this address
+      on a different network means permanent loss. There is no faucet on Arc —
+      every unit of USDC there is real.
+    </div>
+  </div>
+</section>
+
+<section id="tokenomics">
+  <div class="wrap">
+    <h2>Tokenomics</h2>
+    <p class="sub">Where the billion tokens went.</p>
+    <table>
+      <thead><tr><th>Tranche</th><th>Share</th><th class="num">Amount (NUR)</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Deployer / Treasury</td><td>40%</td><td class="num">400,000,000</td><td>Operations and treasury</td></tr>
+        <tr><td>Community &amp; Rewards</td><td>30%</td><td class="num">300,000,000</td><td>Airdrops, incentives, grants</td></tr>
+        <tr><td>Liquidity</td><td>20%</td><td class="num">200,000,000</td><td>Market depth and DEX liquidity</td></tr>
+        <tr><td>Ecosystem &amp; Development</td><td>10%</td><td class="num">100,000,000</td><td>Engineering and integrations</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      The allocation is a plan recorded on chain, not a claim about current
+      distribution. Today the supply sits in the operator wallet and a small test
+      address; tranches are moved as they are used. Every movement is a public
+      transaction.
+    </div>
+  </div>
+</section>
+
+<section id="verify">
+  <div class="wrap">
+    <h2>Verify everything</h2>
+    <p class="sub">Nothing on this page needs to be taken on trust.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Read the source</h3><p><a href="https://explorer.arc.io/address/0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f#code" target="_blank" rel="noopener">The verified contract ↗</a> — compiler v0.8.28, evm cancun, optimizer 200 runs, exact match.</p></div>
+      <div class="card"><h3>Check the supply</h3><p><span class="mono">totalSupply()</span> and <span class="mono">cap()</span> both return 1000000000000000000000000000. <span class="mono">remainingMintable()</span> returns 0.</p></div>
+      <div class="card"><h3>Inspect the pool</h3><p><a href="https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910" target="_blank" rel="noopener">The NUR/USDC pair ↗</a> — reserves are public and small. Look before you trade.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Noor (NUR)</b> — Arc Network, chain ID 5042. Deployed 2026.</p>
+    <p>
+      This page describes software, not an investment. NUR has no guaranteed value,
+      no issuer backing, and no promise of a market. Nothing here is financial,
+      legal, or tax advice. Crypto assets can lose all value.
+    </p>
+    <p>Noor is an independent project. It is not affiliated with, endorsed by, or sponsored by Circle, Arc, or Uniswap.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(b => {
+  b.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(b.dataset.copy);
+      const t = b.textContent; b.textContent = 'Copied';
+      setTimeout(() => (b.textContent = t), 1400);
+    } catch { b.textContent = 'Select manually'; }
+  });
+});
+</script>
+</body>
+</html>

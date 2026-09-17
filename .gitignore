@@ -1,0 +1,13 @@
+# secrets & local build output — never commit
+.secrets/
+SECRETS.md
+.npm-cache/
+node_modules/
+build/
+.tmp/
+deployments/*.local.json
+*.log
+
+site/.preview-*.png
+
+.upload-manifest.json

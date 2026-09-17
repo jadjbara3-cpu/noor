@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Noor (NUR)">
+  <title>Noor (NUR)</title>
+  <desc>An eight-pointed light star on deep navy — Noor means "light".</desc>
+  <defs>
+    <linearGradient id="noor-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A1B33"/>
+      <stop offset="0.55" stop-color="#113055"/>
+      <stop offset="1" stop-color="#1A4E80"/>
+    </linearGradient>
+    <linearGradient id="noor-gold" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFF4D0"/>
+      <stop offset="0.42" stop-color="#FFCF6B"/>
+      <stop offset="1" stop-color="#D98A15"/>
+    </linearGradient>
+    <radialGradient id="noor-glow" cx="0.5" cy="0.46" r="0.55">
+      <stop offset="0" stop-color="#FFE7A8" stop-opacity="0.42"/>
+      <stop offset="0.65" stop-color="#FFE7A8" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#FFE7A8" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="noor-clip"><circle cx="100" cy="100" r="96"/></clipPath>
+  </defs>
+
+  <!-- coin body -->
+  <circle cx="100" cy="100" r="96" fill="url(#noor-bg)"/>
+  <circle cx="100" cy="100" r="96" fill="url(#noor-glow)"/>
+
+  <g clip-path="url(#noor-clip)">
+    <!-- eight-pointed star: two squares, one rotated 45deg -->
+    <g fill="url(#noor-gold)">
+      <rect x="59" y="59" width="82" height="82" rx="5"/>
+      <rect x="59" y="59" width="82" height="82" rx="5" transform="rotate(45 100 100)"/>
+    </g>
+    <!-- light core punched out, then re-filled -->
+    <circle cx="100" cy="100" r="23.5" fill="#0C2140"/>
+    <circle cx="100" cy="100" r="15" fill="url(#noor-gold)"/>
+    <circle cx="100" cy="100" r="6" fill="#FFFBEE"/>
+  </g>
+
+  <!-- rim -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="#FFD98A" stroke-opacity="0.28" stroke-width="2"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#FFD98A" stroke-opacity="0.12" stroke-width="1"/>
+</svg>

@@ -1,0 +1,58 @@
+{
+  "kind": "cctp-bridge-rehearsal",
+  "purpose": "Prove the Base -> Arc CCTP V2 forwarding path end to end on testnet before any real money is bridged.",
+  "executedAt": "2026-09-17T17:52:00Z",
+  "script": "scripts/bridge-to-arc.mjs --from arc-testnet --to base-sepolia --yes",
+  "route": {
+    "source": { "network": "Arc Testnet", "chainId": 5042002, "cctpDomain": 26 },
+    "destination": { "network": "Base Sepolia", "chainId": 84532, "cctpDomain": 6 },
+    "note": "Direction is mirrored relative to production (Base -> Arc) but exercises the identical code path: approve, depositForBurnWithHook, forwarding hook, Iris attestation polling, forwarded mint."
+  },
+  "wallet": "0x91400DA46CfcA15c2e3B09dF792BdFD0dd8D2Af6",
+  "contracts": {
+    "tokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+    "usdcSource": "0x3600000000000000000000000000000000000000",
+    "usdcDestination": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "irisApi": "https://iris-api-sandbox.circle.com"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "result": "FAILED — bug found",
+      "detail": "depositForBurnWithHook reverted with 'ERC20: transfer amount exceeds balance'.",
+      "rootCause": "On Arc the gas token IS USDC and shares one balance with the ERC-20 interface. The approve transaction consumed gas, so the balance read before it was stale. The script then tried to burn more than the wallet still held.",
+      "fix": "Re-read the USDC balance after the approve, estimate the burn transaction's gas, and reserve that (plus a 0.01 USDC margin) before computing the burn amount. Only applies where gas and the bridged token are the same asset.",
+      "approveTxHash": "0xc17408041fee6553113ef29a4e18bcb856a7b3b597d491a3a74fff0deb0ba3d4"
+    },
+    {
+      "attempt": 2,
+      "result": "SUCCESS"
+    }
+  ],
+  "evidence": {
+    "burnTxHash": "0x0f91f08898ad4e75ceabfa214c26ca37c6729daed0e4402a72f550f8feea3b27",
+    "burnTxUrl": "https://testnet.arcscan.app/tx/0x0f91f08898ad4e75ceabfa214c26ca37c6729daed0e4402a72f550f8feea3b27",
+    "burnBlock": 62606047,
+    "burnGasUsed": "126464",
+    "amountBurned": "19.876134",
+    "forwardingFee": "0.05393",
+    "protocolFee": "0",
+    "maxFee": "0.05493",
+    "gasReserve": "0.020407",
+    "attestationStates": ["pending_confirmations", "complete"],
+    "forwardedMintTxHash": "0x9c3a520e9e16120d6111339116533057ade5de58170f4af3070a080ae690cc32",
+    "forwardedMintTxUrl": "https://sepolia.basescan.org/tx/0x9c3a520e9e16120d6111339116533057ade5de58170f4af3070a080ae690cc32",
+    "amountReceived": "19.821204"
+  },
+  "productionInterfaceCheck": {
+    "method": "eth_call depositForBurnWithHook(5 USDC, domain 26, ...) against the real Base mainnet TokenMessengerV2",
+    "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+    "selector": "0x779b432d",
+    "result": "reverted with 'ERC20: transfer amount exceeds allowance'",
+    "conclusion": "The production ABI, selector and argument encoding all decode correctly — execution reached the token transfer, which is exactly the expected failure before an approve."
+  },
+  "untestedForProduction": [
+    "The no-reserve branch (gas is a separate asset on Base) — trivial: the reserve is simply zero.",
+    "Live iteration against a real production Iris message — the endpoint and response shape were verified with direct calls."
+  ]
+}

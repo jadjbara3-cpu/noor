@@ -1,0 +1,171 @@
+{
+  "project": "Noor (NUR)",
+  "network": "Arc Testnet",
+  "chainId": 5042002,
+  "rpc": "https://rpc.testnet.arc.io",
+  "explorer": "https://testnet.arcscan.app",
+  "address": "0x5cA0543cf51F9f2f2bd1722B7bAe76Ca7F1F0053",
+  "txHash": "0x14f397b95237613cb4d068eacda63ac80ff4a71dd1404922266ec4580be38751",
+  "blockNumber": 62602220,
+  "gasUsed": "1816318",
+  "effectiveGasPrice": "21000000000",
+  "deployer": "0x91400DA46CfcA15c2e3B09dF792BdFD0dd8D2Af6",
+  "derivationPath": "m/44'/60'/0'/0/0",
+  "constructorArgsHex": "00000000000000000000000091400da46cfca15c2e3b09df792bdfd0dd8d2af60000000000000000000000000000000000000000033b2e3c9fd0803ce80000000000000000000000000000000000000000000000033b2e3c9fd0803ce800000000000000000000000000000091400da46cfca15c2e3b09df792bdfd0dd8d2af6",
+  "compiler": {
+    "version": "v0.8.28+commit.7893614a",
+    "evmVersion": "cancun",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "contractName": "contracts/NoorCoin.sol:NoorCoin",
+    "standardJsonInput": "build/standard-json-input.json",
+    "standardJsonInputSha256": "c6c56e74163f12ae0435f4a14e02b62118241dd0cce34b94234dd4b6a0cd4928"
+  },
+  "sourceHash": "0xab7c500a63b387ef6f02be8edcb14e652503d82cc2d4bb42dd3298728655cccd",
+  "verified": true,
+  "onchain": {
+    "name": "Noor",
+    "symbol": "NUR",
+    "decimals": 18,
+    "totalSupply": "1000000000000000000000000000",
+    "cap": "1000000000000000000000000000",
+    "owner": "0x91400DA46CfcA15c2e3B09dF792BdFD0dd8D2Af6",
+    "treasury": "0x91400DA46CfcA15c2e3B09dF792BdFD0dd8D2Af6",
+    "feeBps": 0,
+    "limitsEnabled": false,
+    "paused": false,
+    "runtimeBytes": 7095
+  },
+  "recoveredFromChain": true,
+  "deployedAt": "2026-09-17T17:00:48.000Z",
+  "verifiedAt": "2026-09-17T17:04:39.423983Z",
+  "verification": {
+    "method": "solidity-standard-json-input (Blockscout v2 via/standard-input, multipart/form-data)",
+    "explorerApiHost": "https://explorer.testnet.arc.io",
+    "compiler": "v0.8.28+commit.7893614a",
+    "evmVersion": "cancun",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "filePath": "contracts/NoorCoin.sol",
+    "contractName": "NoorCoin"
+  },
+  "distribution": {
+    "executedAt": "2026-09-17T17:05:24.725Z",
+    "tranches": [
+      {
+        "role": "main",
+        "address": "0x91400DA46CfcA15c2e3B09dF792BdFD0dd8D2Af6",
+        "amount": "400000000000000000000000000",
+        "share": "40%"
+      },
+      {
+        "role": "community",
+        "address": "0x724b502c55D256D900bf0E43c7Ccbe3035b19a0D",
+        "amount": "300000000000000000000000000",
+        "share": "30%",
+        "txHash": "0xf141476b9e6676f74d21aec61005d372d583760fac1860c46ac0abc5b0ff089f"
+      },
+      {
+        "role": "liquidity",
+        "address": "0xfCE6DaFF33ab028331506f37cC2d5C7A2854a9AA",
+        "amount": "200000000000000000000000000",
+        "share": "20%",
+        "txHash": "0xbe3b13ddef48b7b5f47f10662b610d900a1271ec22ff8f3f73fa6f820469a724"
+      },
+      {
+        "role": "ecosystem",
+        "address": "0x1068e2D46F9a0551F60Efc226D41b8356Fca0bB3",
+        "amount": "100000000000000000000000000",
+        "share": "10%",
+        "txHash": "0xb823bba1a10070b783e9fc03229f2e7a10cc11265f4ec375b554b3b3d2b6951e"
+      }
+    ]
+  },
+  "blockTimestamp": 1789664448,
+  "transactions": [
+    {
+      "step": "faucet",
+      "description": "Circle faucet drip — 20 testnet USDC",
+      "txHash": "0x600441fb86814c778530009bb813f58337768b3642b9d603a9c49d86dce5c021"
+    },
+    {
+      "step": "deploy",
+      "description": "NoorCoin contract creation",
+      "txHash": "0x14f397b95237613cb4d068eacda63ac80ff4a71dd1404922266ec4580be38751"
+    },
+    {
+      "step": "distribute",
+      "description": "300,000,000 NUR → community",
+      "txHash": "0xf141476b9e6676f74d21aec61005d372d583760fac1860c46ac0abc5b0ff089f"
+    },
+    {
+      "step": "distribute",
+      "description": "200,000,000 NUR → liquidity",
+      "txHash": "0xbe3b13ddef48b7f5f47f10662b610d900a1271ec22ff8f3f73fa6f820469a724"
+    },
+    {
+      "step": "distribute",
+      "description": "100,000,000 NUR → ecosystem",
+      "txHash": "0xb823bba1a10070b783e9fc03229f2e7a10cc11265f4ec375b554b3b3d2b6951e"
+    },
+    {
+      "step": "configure",
+      "description": "setExempt(community)",
+      "txHash": "0x8bc06666537043be94b4e1c89558e439c3279e5a6341a95e34d429ed391455dd"
+    },
+    {
+      "step": "configure",
+      "description": "setExempt(liquidity)",
+      "txHash": "0x727169cb89b80393967d026de163782698cedf31fee5eb8aae5e2ca80f508620"
+    },
+    {
+      "step": "configure",
+      "description": "setExempt(ecosystem)",
+      "txHash": "0x086117fa77964d52fb7769813fc51ea35244589e60d24ca54e89389715713482"
+    },
+    {
+      "step": "demo",
+      "description": "native USDC gas top-up for community",
+      "txHash": "0xb1e989c7b40a6b76487232a4fefcfb4fa7132a889cf5fbf0a2bd97ab11313943"
+    },
+    {
+      "step": "demo",
+      "description": "EIP-2612 permit — gasless 1000 NUR approval",
+      "txHash": "0x4dac5a5a38a05a58e86fcfd48cdeb5b223c78cc0eac2b992740db0997cc7f8d4"
+    },
+    {
+      "step": "demo",
+      "description": "transferFrom — spend 250 NUR of the allowance",
+      "txHash": "0x49e548ef294d4e5ef77a26b7ecf12677d7847d1b484f7c9cb6c69822c1a98115"
+    },
+    {
+      "step": "demo",
+      "description": "batchTransfer — 3 recipients in one tx",
+      "txHash": "0x996251ad152a9b2aecaef1c7838536a8de943c0e145e97334d36e862b4a3453f"
+    },
+    {
+      "step": "demo",
+      "description": "burn — 1000 NUR destroyed",
+      "txHash": "0x7d4b2306c15a88981222023db1b1712b63b91ea0489a78f693d6986226413bbc"
+    },
+    {
+      "step": "guards",
+      "description": "pause() — circuit breaker on",
+      "txHash": "0x3dd801a72a8432dcb23e6841ba7b643a4d844a9c4691d6cd31ceb4daf8f8664b"
+    },
+    {
+      "step": "guards",
+      "description": "unpause() — circuit breaker off",
+      "txHash": "0x4f21d899ea268f1b8b3944a784fc099334e4be467661a7fb8b4160d0a56977ed"
+    },
+    {
+      "step": "guards",
+      "description": "transfer after unpause — proves liveness",
+      "txHash": "0x20f4e165f727121fe6f1938adfc1c2d1bf13175fce87c2c16c9fb5ce71da27eb"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "project": "Noor (NUR)",
+  "network": "Arc Mainnet",
+  "chainId": 5042,
+  "rpc": "https://rpc.mainnet.arc.io",
+  "explorer": "https://explorer.arc.io",
+  "address": "0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f",
+  "txHash": "0x878fd0d726cc67152c20156db091f8758edf2076d7d409f4b81ef86db96b7616",
+  "blockNumber": 21365329,
+  "gasUsed": "1816318",
+  "effectiveGasPrice": "21000000000",
+  "deployer": "0xB66BE4c1C3677a82105da62E447EAde1e243538f",
+  "derivationPath": "m/44'/60'/0'/0/10",
+  "constructorArgs": [
+    "0xB66BE4c1C3677a82105da62E447EAde1e243538f",
+    "1000000000000000000000000000",
+    "1000000000000000000000000000",
+    "0xB66BE4c1C3677a82105da62E447EAde1e243538f"
+  ],
+  "constructorArgsHex": "000000000000000000000000b66be4c1c3677a82105da62e447eade1e243538f0000000000000000000000000000000000000000033b2e3c9fd0803ce80000000000000000000000000000000000000000000000033b2e3c9fd0803ce8000000000000000000000000000000b66be4c1c3677a82105da62e447eade1e243538f",
+  "compiler": {
+    "version": "v0.8.28+commit.7893614a",
+    "evmVersion": "cancun",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "contractName": "contracts/NoorCoin.sol:NoorCoin",
+    "standardJsonInput": "build/standard-json-input.json",
+    "standardJsonInputSha256": "c6c56e74163f12ae0435f4a14e02b62118241dd0cce34b94234dd4b6a0cd4928"
+  },
+  "sourceHash": "0xab7c500a63b387ef6f02be8edcb14e652503d82cc2d4bb42dd3298728655cccd",
+  "verified": true,
+  "onchain": {
+    "name": "Noor",
+    "symbol": "NUR",
+    "decimals": 18,
+    "totalSupply": "1000000000000000000000000000",
+    "cap": "1000000000000000000000000000",
+    "owner": "0xB66BE4c1C3677a82105da62E447EAde1e243538f",
+    "treasury": "0xB66BE4c1C3677a82105da62E447EAde1e243538f",
+    "feeBps": 0,
+    "limitsEnabled": false,
+    "paused": false,
+    "runtimeBytes": 7095
+  },
+  "deployedAt": "2026-09-17T17:46:40.558Z",
+  "verifiedAt": "2026-09-17T20:47:36.000Z",
+  "verification": {
+    "method": "Blockscout v2 via/standard-input (multipart/form-data, submitted from browser)",
+    "explorer": "https://explorer.arc.io/address/0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f#code",
+    "result": "exact match",
+    "contractName": "NoorCoin",
+    "filePath": "contracts/NoorCoin.sol",
+    "compiler": "v0.8.28+commit.7893614a",
+    "evmVersion": "cancun",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  },
+  "smokeTest": {
+    "executedAt": "2026-09-17T17:49:13.064Z",
+    "assertions": 16,
+    "failed": 0
+  },
+  "transactions": [
+    {
+      "step": "bridge",
+      "chain": "Base",
+      "description": "approve USDC -> TokenMessengerV2 (CCTP V2)",
+      "txHash": "0x42b058f539a5347aefdcad85bc122d9023bc969abbf02decd04566354bca8acf",
+      "explorer": "https://basescan.org/tx/"
+    },
+    {
+      "step": "bridge",
+      "chain": "Base",
+      "description": "depositForBurnWithHook — burn 2.8 USDC, forward to Arc",
+      "txHash": "0xfd8c13dfe963685735a612ae4ad05b47992234efca950a75af3270049e96cd30",
+      "explorer": "https://basescan.org/tx/"
+    },
+    {
+      "step": "bridge",
+      "chain": "Arc",
+      "description": "Circle forwarded mint — 2.783237 USDC delivered to Arc",
+      "txHash": "0xbc057a28a66e0d8e18fff55a6f7b3f009e22ce6756f9f8e9d44efe2fdae81fb0"
+    },
+    {
+      "step": "deploy",
+      "chain": "Arc",
+      "description": "NoorCoin contract creation on Arc Mainnet",
+      "txHash": "0x878fd0d726cc67152c20156db091f8758edf2076d7d409f4b81ef86db96b7616"
+    },
+    {
+      "step": "smoke",
+      "chain": "Arc",
+      "description": "live transfer — 1,000 NUR to m/44'/60'/0'/0/1",
+      "txHash": "0x87023fdba4d4aebe3e64685733cec803bde93b222c7e45387018d3a901ad9d55"
+    },
+    {
+      "step": "smoke",
+      "chain": "Arc",
+      "description": "EIP-2612 permit — gasless 500 NUR approval",
+      "txHash": "0x876be46156e81f273cffa93dee8b3829a77a6e15d04fb816f3d7392edba66894"
+    }
+  ],
+  "pool": {
+    "protocol": "Uniswap v2",
+    "pair": "0xa8dC7Eba119949500F8e18fD086a0bF151095910",
+    "router02": "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA",
+    "factory": "0x89e5DB8B5aA49aA85AC63f691524311AEB649eba",
+    "createdTx": "0x282acec994254926959866384fcf1d31aee41f8f54ee8d480cdeb55d1c1eaed1",
+    "block": 21366612,
+    "reserves": {
+      "nur": "2500000000000000000000000",
+      "usdc": "2500000"
+    },
+    "openPriceUsdcPerNur": "0.000001",
+    "impliedFdvUsd": 1000,
+    "lpTokensHeldBy": "0xB66BE4c1C3677a82105da62E447EAde1e243538f",
+    "explorer": "https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910",
+    "note": "Thin proof-of-market: 2.5 USDC of real capital. Severe slippage at any meaningful size."
+  }
+}
