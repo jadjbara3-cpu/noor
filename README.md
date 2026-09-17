@@ -23,6 +23,17 @@ build pipeline, the deployment tooling, and the operational secrets record.
 > The pool holds a few USDC. At that depth a few dollars of trade moves the price
 > several-fold — the reserves are public. Read them before trading.
 
+### Utility — Noor Pay
+
+| | |
+| :--- | :--- |
+| **App** | **[jadjbara3-cpu.github.io/noor/pay.html](https://jadjbara3-cpu.github.io/noor/pay.html)** |
+| What it does | Connect any wallet, read NUR + USDC balances from Arc, send NUR, generate shareable payment links |
+| Payment links | `pay.html?to=0x…&amount=100&ref=Invoice+0042` |
+| Design | One static file. No backend, no dependencies, no analytics, no custody |
+| Price source | `eth_call` against the Uniswap v2 pair — no API, no key, no CORS proxy |
+| Source | [`pay.html`](./pay.html) · [`site/pay.html`](./site/pay.html) |
+
 ### Brand & assets
 
 | | |

@@ -106,6 +106,28 @@ the repository and its SHA-256 is recorded so the build can be replayed.
 
 ---
 
+## What you can do with it
+
+A currency is only as useful as the tools around it. Noor Pay is a static web app
+that makes NUR spendable without asking anyone's permission:
+
+| Capability | Detail |
+| :--- | :--- |
+| Send NUR | A plain ERC-20 transfer, signed in the user's own wallet |
+| Request payment | Generates a shareable link — `pay.html?to=…&amount=…&ref=…` |
+| Read balances | Straight from Arc via `eth_call`; nothing is cached or invented |
+| Show the market price | Read from the Uniswap v2 pair contract on chain, not from an API |
+| Add to wallet | `wallet_watchAsset`, so NUR appears with its name and icon |
+| Custody | None. There is no server, no account, and no key handling |
+
+**Live:** https://jadjbara3-cpu.github.io/noor/pay.html
+
+A payment tool makes a currency spendable. Whether anyone chooses to spend it is
+a separate question, and no tool answers it — that requires a reason to use NUR,
+which is the work still ahead.
+
+---
+
 ## Market reality
 
 The Uniswap v2 pool holds a few USDC. At that depth a trade of a few dollars
