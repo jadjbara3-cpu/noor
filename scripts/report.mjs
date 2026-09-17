@@ -111,6 +111,27 @@ async function main() {
     p();
   }
 
+  if (dep.listings) {
+    p("## Public listings");
+    p();
+    p("| Platform | Status | Page |");
+    p("| :--- | :--- | :--- |");
+    for (const [key, l] of Object.entries(dep.listings)) {
+      const name = key.charAt(0).toUpperCase() + key.slice(1);
+      const link = l.url ? `[open](${l.url})` : "—";
+      p(`| ${name} | ${l.status} | ${link} |`);
+    }
+    p();
+    for (const [key, l] of Object.entries(dep.listings)) {
+      const bits = [];
+      if (l.trigger) bits.push(`indexed by ${l.trigger}`);
+      if (l.profile) bits.push(l.profile);
+      if (l.note) bits.push(l.note);
+      if (bits.length) p(`- **${key}** — ${bits.join("; ")}.`);
+    }
+    p();
+  }
+
   p("## Holder balances");
   p();
   if (net.realMoney) {

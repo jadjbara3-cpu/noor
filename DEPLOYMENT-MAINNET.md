@@ -1,6 +1,6 @@
 # DEPLOYMENT — Noor (NUR) on Arc Mainnet
 
-Generated `2026-09-17T18:03:41.737Z` directly from chain state (chain ID `5042`).
+Generated `2026-09-17T18:47:06.963Z` directly from chain state (chain ID `5042`).
 
 > ⚠️ **This contract is deployed on Arc MAINNET and holds real value.**
 
@@ -27,7 +27,7 @@ Generated `2026-09-17T18:03:41.737Z` directly from chain state (chain ID `5042`)
 | :--- | :--- |
 | Address | `0xB66BE4c1C3677a82105da62E447EAde1e243538f` |
 | Derivation | `m/44'/60'/0'/0/10` |
-| Gas balance | 0.183434731 USDC |
+| Gas balance | 0.129053606 USDC |
 
 ### Runtime configuration
 
@@ -48,18 +48,36 @@ Generated `2026-09-17T18:03:41.737Z` directly from chain state (chain ID `5042`)
 | Router02 | `0x1f7d7550B1b028f7571E69A784071F0205FD2EfA` |
 | Factory | `0x89e5DB8B5aA49aA85AC63f691524311AEB649eba` |
 | Created by | `0x282acec994254926959866384fcf1d31aee41f8f54ee8d480cdeb55d1c1eaed1` (block 21366612) |
-| Reserves | 2500000.0 NUR + 2.5 USDC |
+| Reserves | 2451124.575955448359707434 NUR + 2.55 USDC |
 | Opening price | 1 NUR = 0.000001 USDC |
-| Implied FDV | $1,000 (derived from a 2.5 USDC pool — not a valuation) |
+| Implied FDV | $1,000 (derived from a 2.55 USDC pool — not a valuation) |
 | LP tokens held by | `0xB66BE4c1C3677a82105da62E447EAde1e243538f` |
 
 > Thin proof-of-market: 2.5 USDC of real capital. Severe slippage at any meaningful size.
+
+## Public listings
+
+| Platform | Status | Page |
+| :--- | :--- | :--- |
+| Dexscreener | indexed | [open](https://dexscreener.com/arc/0xa8dc7eba119949500f8e18fd086a0bf151095910) |
+| Geckoterminal | indexed | [open](https://www.geckoterminal.com/arc/pools/0xa8dC7Eba119949500F8e18fD086a0bF151095910) |
+| Coinmarketcap | not eligible yet | — |
+| Blockscout | requested | — |
+| UniswapTokenList | requested | [open](https://github.com/Uniswap/default-token-list/issues/2582) |
+| Coingecko | via GeckoTerminal | [open](https://www.geckoterminal.com/arc/pools/0xa8dC7Eba119949500F8e18fD086a0bF151095910) |
+
+- **dexscreener** — indexed by first swap on the pool; Enhanced Token Info is a paid product (USD 299-499) — not purchased.
+- **geckoterminal** — Update Token Info Fast Pass is USD 199 — not purchased; GeckoTerminal powers CoinGecko's DEX data and feeds apps via its API.
+- **coinmarketcap** — A tracked CMC listing requires a qualifying exchange and real volume; an untracked page can be requested but shows no price.
+- **blockscout** — Token info emailed to submissions@blockscout.com from jadjbara3@gmail.com.
+- **uniswapTokenList** — Official token request filed; the Uniswap default list does not cover Arc yet, so this registers the token for when it does.
+- **coingecko** — CoinGecko consumes GeckoTerminal DEX data; a CoinGecko coin page needs a CoinGecko listing review.
 
 ## Holder balances
 
 | Holder | Address | NUR | Share | Exempt |
 | :--- | :--- | ---: | ---: | :---: |
-| **operator wallet** (deployer, holds the genesis supply) | `0xB66BE4c1C3677a82105da62E447EAde1e243538f` | 997499000.0 | 99.7499% | true |
+| **operator wallet** (deployer, holds the genesis supply) | `0xB66BE4c1C3677a82105da62E447EAde1e243538f` | 997547875.424044551640292566 | 99.7548% | true |
 
 Distribution addresses derived from the same mnemonic (currently unfunded on this chain):
 
@@ -82,6 +100,8 @@ Every action below is a confirmed Arc transaction:
 | 4 | `deploy (Arc)` | NoorCoin contract creation on Arc Mainnet | [`0x878fd0d726cc6715…`](https://explorer.arc.io/tx/0x878fd0d726cc67152c20156db091f8758edf2076d7d409f4b81ef86db96b7616) |
 | 5 | `smoke (Arc)` | live transfer — 1,000 NUR to m/44'/60'/0'/0/1 | [`0x87023fdba4d4aebe…`](https://explorer.arc.io/tx/0x87023fdba4d4aebe3e64685733cec803bde93b222c7e45387018d3a901ad9d55) |
 | 6 | `smoke (Arc)` | EIP-2612 permit — gasless 500 NUR approval | [`0x876be46156e81f27…`](https://explorer.arc.io/tx/0x876be46156e81f273cffa93dee8b3829a77a6e15d04fb816f3d7392edba66894) |
+| 7 | `swap (Arc)` | single indexing swap — 0.05 USDC → NUR (emits the Swap event DexScreener requires) | [`0xe45ae7a721322d4f…`](https://explorer.arc.io/tx/0xe45ae7a721322d4f3b217215a57b269a8dc2c5b9808701c7e2f3e8108ff8fe38) |
+| 8 | `approve (Arc)` | approve USDC to Router02 for the indexing swap | [`0x99617dc07dc0e149…`](https://explorer.arc.io/tx/0x99617dc07dc0e149a40b3c6a95f3a5894362dafaeb355460b3df68915244cf11) |
 
 ## Safety properties verified on-chain
 

@@ -1,5 +1,3 @@
-> **Live:** [Website](https://jadjbara3-cpu.github.io/noor/) · [Token list](https://jadjbara3-cpu.github.io/noor/brand/tokenlist.json) · [Verified contract](https://explorer.arc.io/address/0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f#code) · [Market](https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910)
-
 # Noor (NUR) — a digital currency on Arc Network
 
 **Noor** is an ERC-20 digital currency deployed on **Arc Network**, Circle's
@@ -17,6 +15,8 @@ build pipeline, the deployment tooling, and the operational secrets record.
 | **Owner** | `0xB66BE4c1C3677a82105da62E447EAde1e243538f` |
 | **Smoke test** | ✅ 16/16 assertions — live transfer + EIP-2612 permit + guards revert |
 | **Market** | Uniswap v2 NUR/USDC — [`0xa8dC7Eba…5910`](https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910) · opening price 1 NUR = 0.000001 USDC |
+| **Listed on** | [DexScreener](https://dexscreener.com/arc/0xa8dc7eba119949500f8e18fd086a0bf151095910) ✅ · [GeckoTerminal](https://www.geckoterminal.com/arc/pools/0xa8dC7Eba119949500F8e18fD086a0bF151095910) ✅ (both free, automatic on first swap) |
+| **Requested** | [Uniswap default list #2582](https://github.com/Uniswap/default-token-list/issues/2582) · Blockscout token info (emailed) |
 | **Funding route** | Binance → Base → Circle CCTP V2 (forwarding) → Arc, total cost ≈ $0.11 |
 | **Record** | [`DEPLOYMENT-MAINNET.md`](./DEPLOYMENT-MAINNET.md) · [`MAINNET_LAUNCH_PLAN.md`](./MAINNET_LAUNCH_PLAN.md) |
 

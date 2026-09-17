@@ -102,6 +102,18 @@
       "chain": "Arc",
       "description": "EIP-2612 permit — gasless 500 NUR approval",
       "txHash": "0x876be46156e81f273cffa93dee8b3829a77a6e15d04fb816f3d7392edba66894"
+    },
+    {
+      "step": "swap",
+      "chain": "Arc",
+      "description": "single indexing swap — 0.05 USDC → NUR (emits the Swap event DexScreener requires)",
+      "txHash": "0xe45ae7a721322d4f3b217215a57b269a8dc2c5b9808701c7e2f3e8108ff8fe38"
+    },
+    {
+      "step": "approve",
+      "chain": "Arc",
+      "description": "approve USDC to Router02 for the indexing swap",
+      "txHash": "0x99617dc07dc0e149a40b3c6a95f3a5894362dafaeb355460b3df68915244cf11"
     }
   ],
   "pool": {
@@ -112,13 +124,56 @@
     "createdTx": "0x282acec994254926959866384fcf1d31aee41f8f54ee8d480cdeb55d1c1eaed1",
     "block": 21366612,
     "reserves": {
-      "nur": "2500000000000000000000000",
-      "usdc": "2500000"
+      "nur": "2451124575955448359707434",
+      "usdc": "2550000"
     },
     "openPriceUsdcPerNur": "0.000001",
     "impliedFdvUsd": 1000,
     "lpTokensHeldBy": "0xB66BE4c1C3677a82105da62E447EAde1e243538f",
     "explorer": "https://explorer.arc.io/address/0xa8dC7Eba119949500F8e18fD086a0bF151095910",
-    "note": "Thin proof-of-market: 2.5 USDC of real capital. Severe slippage at any meaningful size."
+    "note": "Thin proof-of-market: 2.5 USDC of real capital. Severe slippage at any meaningful size.",
+    "swaps": 1,
+    "indexing": {
+      "triggeredAt": "2026-09-17T18:44:17.042Z",
+      "swapTx": "0xe45ae7a721322d4f3b217215a57b269a8dc2c5b9808701c7e2f3e8108ff8fe38",
+      "reason": "DexScreener indexes a pair only after its first swap",
+      "size": "0.05 USDC",
+      "note": "A single activation swap — not a volume campaign."
+    }
+  },
+  "listings": {
+    "dexscreener": {
+      "status": "indexed",
+      "url": "https://dexscreener.com/arc/0xa8dc7eba119949500f8e18fd086a0bf151095910",
+      "api": "https://api.dexscreener.com/latest/dex/pairs/arc/0xa8dC7Eba119949500F8e18fD086a0bF151095910",
+      "indexedAt": "2026-09-17T18:44:11Z",
+      "trigger": "first swap on the pool",
+      "profile": "Enhanced Token Info is a paid product (USD 299-499) — not purchased"
+    },
+    "geckoterminal": {
+      "status": "indexed",
+      "url": "https://www.geckoterminal.com/arc/pools/0xa8dC7Eba119949500F8e18fD086a0bF151095910",
+      "indexedAt": "2026-09-17T18:50:00Z",
+      "note": "GeckoTerminal powers CoinGecko's DEX data and feeds apps via its API",
+      "profile": "Update Token Info Fast Pass is USD 199 — not purchased"
+    },
+    "coinmarketcap": {
+      "status": "not eligible yet",
+      "note": "A tracked CMC listing requires a qualifying exchange and real volume; an untracked page can be requested but shows no price"
+    },
+    "blockscout": {
+      "status": "requested",
+      "note": "Token info emailed to submissions@blockscout.com from jadjbara3@gmail.com"
+    },
+    "uniswapTokenList": {
+      "status": "requested",
+      "url": "https://github.com/Uniswap/default-token-list/issues/2582",
+      "note": "Official token request filed; the Uniswap default list does not cover Arc yet, so this registers the token for when it does"
+    },
+    "coingecko": {
+      "status": "via GeckoTerminal",
+      "url": "https://www.geckoterminal.com/arc/pools/0xa8dC7Eba119949500F8e18fD086a0bF151095910",
+      "note": "CoinGecko consumes GeckoTerminal DEX data; a CoinGecko coin page needs a CoinGecko listing review"
+    }
   }
 }
