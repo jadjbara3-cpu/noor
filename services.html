@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arc deployment and integration — done for you | Noor</title>
+<meta name="description" content="We deployed a source-verified ERC-20, a Uniswap v2 market and a no-backend payment page on Arc mainnet, and documented the six traps that cost us hours. Fixed-price work in USDC on Arc.">
+<link rel="icon" href="brand/favicon.png">
+<style>
+  :root{--navy:#0A1B33;--blue:#1A4E80;--gold:#FFCF6B;--golddeep:#D98A15;--cream:#FFFBEE;--ink:#0d1b2a;--muted:#5b6b81;--line:#e3e8f0}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .bar{background:var(--navy);color:#fff}
+  .bar .wrap{display:flex;align-items:center;gap:22px;padding:14px 22px;max-width:960px;margin:0 auto}
+  .bar .brand{font-weight:800;letter-spacing:.14em;color:var(--gold);text-decoration:none}
+  .bar nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
+  .bar nav a{color:#B9C4D6;text-decoration:none;font-size:14px}
+  .bar nav a:hover{color:#fff}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+  header.hero{padding:52px 0 8px}
+  h1{font-size:33px;line-height:1.2;margin:0 0 10px}
+  h2{font-size:22px;margin:42px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
+  p{margin:0 0 14px}
+  .lede{font-size:18px;color:var(--muted)}
+  a{color:var(--blue)}
+  code{background:#eef2f7;padding:2px 6px;border-radius:5px;font-size:13px;word-break:break-all}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15.5px}
+  th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .callout{background:#fff;border-left:4px solid var(--golddeep);padding:16px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+  .callout.blue{border-left-color:var(--blue)}
+  .callout.warn{border-left-color:#c0392b}
+  ul,ol{margin:0 0 14px;padding-left:20px}
+  li{margin:6px 0}
+  .price{font-size:19px;font-weight:700}
+  footer{margin:56px 0 40px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html">NOOR</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="pay.html">Pay</a>
+      <a href="buy.html">Get NUR</a>
+      <a href="partners.html">Partners</a>
+      <a href="services.html">Services</a>
+      <a href="https://github.com/jadjbara3-cpu/noor">Repo</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <h1>Arc deployment and integration, done for you.</h1>
+  <p class="lede">We put a source-verified ERC-20, a live Uniswap v2 market and a payment page with no backend on Arc mainnet — and wrote down the six traps that cost hours each. You can read those for free and do it yourself, or pay us to skip them.</p>
+</header>
+
+<h2>Why this exists</h2>
+<p>Building on a new chain is mostly a tax on ignorance. The code is easy; the six surprises are not. We paid that tax in full on Arc mainnet and published the receipts, including the failing transaction hashes, at <a href="https://github.com/jadjbara3-cpu/noor">github.com/jadjbara3-cpu/noor</a>.</p>
+<p>If you would rather spend your time on your product than on discovering why your transfer reverted, that is what we sell.</p>
+
+<h2>What we do, and what it costs</h2>
+<table>
+  <tr><th>Service</th><th>What you get</th><th class="num">Price</th></tr>
+  <tr>
+    <td><b>Token deployment</b></td>
+    <td>An ERC-20 deployed to Arc mainnet, source-verified as an <b>exact match</b> on ArcScan. Includes the browser-side verification step that a script cannot do.</td>
+    <td class="num">50 USDC</td>
+  </tr>
+  <tr>
+    <td><b>Market</b></td>
+    <td>Uniswap v2 pool created against USDC, plus the single activation swap that makes the pair visible to DexScreener and GeckoTerminal — because without it, no router can see you.</td>
+    <td class="num">120 USDC</td>
+  </tr>
+  <tr>
+    <td><b>Payment page</b></td>
+    <td>A static page, no backend and no custody: balances, live price read from the chain, and ERC-20 transfers the user signs themselves. Forkable, hosted anywhere.</td>
+    <td class="num">250 USDC</td>
+  </tr>
+  <tr>
+    <td><b>Bridging with CCTP</b></td>
+    <td>USDC moved from Base, Ethereum or Arbitrum into Arc natively, with the gas reservation handled correctly so your first attempt does not revert.</td>
+    <td class="num">60 USDC</td>
+  </tr>
+  <tr>
+    <td><b>Integration review</b></td>
+    <td>We read your Arc integration and tell you what will break, in writing, before you deploy. Cheaper than finding out with real money in the contract.</td>
+    <td class="num">80 USDC</td>
+  </tr>
+</table>
+
+<div class="callout">
+  <p style="margin:0"><b>Fixed price. Paid in USDC on Arc. Half up front, half on handover.</b> If we cannot do it, we say so before taking anything — and if we take it and fail, you get the first half back.</p>
+</div>
+
+<h2>The six traps, free, right now</h2>
+<p>These cost us hours each. Take them whether you hire us or not:</p>
+<ol>
+  <li>Arc mainnet has <b>no allowlist</b> on the write path.</li>
+  <li><b>20 gwei is a protocol floor</b>, not a suggestion — below it a transaction can sit pending indefinitely.</li>
+  <li><b>The gas token and the bridged token share one balance.</b> Read-balance → approve → transfer-that-balance reverts, because the read already counted the fee you were about to burn. The retry makes it strictly worse: a failed attempt is still a debit.</li>
+  <li><b>DEX indexers see an Arc pair only after its first swap.</b> A live pool is invisible to every router until then.</li>
+  <li><b><code>token0()</code> returns a 32-byte padded address.</b> Comparing it to a bare checksummed address inverts your reserves and prints nonsense prices.</li>
+  <li><b><code>explorer.arc.io</code> is behind Cloudflare</b>, so contract verification must be submitted from a browser.</li>
+</ol>
+
+<h2>Disclosure, before you pay anything</h2>
+<div class="callout warn">
+  <p style="margin:0">An <b>autonomous AI agent</b> did this work under the direction of the project owner, an accountant who does not write code. The agent will do your work too. That is stated here, in the repository, and in every post about this project, and it is not negotiable in either direction: we are not going to pretend a human typed it, and you are not going to be surprised by it later.</p>
+</div>
+
+<h2>What we will not do</h2>
+<ul>
+  <li>We will not write a token that promises a return, or help anyone imply one.</li>
+  <li>We will not run volume bots, wash trades or paid boosts for you. If your project needs fake activity to look alive, we are the wrong supplier.</li>
+  <li>We will not target people who cannot afford to lose money.</li>
+  <li>We will not take a share of your token in place of payment. Cash in USDC, or nothing.</li>
+</ul>
+
+<h2>How to start</h2>
+<p>Send the contract you want deployed, or the repository you want reviewed, and the chain you are on. You will get a written scope and a fixed price before anything is paid.</p>
+<ul>
+  <li>GitHub: <a href="https://github.com/jadjbara3-cpu/noor/issues">open an issue</a></li>
+  <li>Moltbook: <a href="https://www.moltbook.com/u/nooronarc">@nooronarc</a></li>
+  <li>Or reply wherever this page reached you.</li>
+</ul>
+
+<p><b>Reference work:</b> the live deployment this page is priced against is at <a href="https://jadjbara3-cpu.github.io/noor/pay.html">Noor Pay</a> — token <code>0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f</code>, pair <code>0xa8dC7Eba119949500F8e18fD086a0bF151095910</code>, both on Arc mainnet, chain 5042. Check them yourself; that is the whole point of quoting them.</p>
+
+<footer>
+  <p>Noor is an independent project. It is not affiliated with, endorsed by, or sponsored by Circle, Arc, or Uniswap. This page offers software engineering services. It is not investment advice, and nothing here is a promise about the value of any token.</p>
+</footer>
+
+</div>
+</body>
+</html>
