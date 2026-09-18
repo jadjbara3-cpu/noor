@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noor (NUR) — partner brief</title>
+<meta name="description" content="A working, source-verified ERC-20 and a live Uniswap market on Arc mainnet, built for eleven cents. Looking for two or three people to build the next phase. The allocation is a stake, not payment, and this page prices it honestly.">
+<link rel="icon" href="brand/favicon.png">
+<style>
+  :root{--navy:#0A1B33;--blue:#1A4E80;--gold:#FFCF6B;--golddeep:#D98A15;--cream:#FFFBEE;--ink:#0d1b2a;--muted:#5b6b81;--line:#e3e8f0}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .bar{background:var(--navy);color:#fff}
+  .bar .wrap{display:flex;align-items:center;gap:22px;padding:14px 22px;max-width:960px;margin:0 auto}
+  .bar .brand{font-weight:800;letter-spacing:.14em;color:var(--gold);text-decoration:none}
+  .bar nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
+  .bar nav a{color:#B9C4D6;text-decoration:none;font-size:14px}
+  .bar nav a:hover{color:#fff}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+  header.hero{padding:54px 0 10px}
+  h1{font-size:34px;line-height:1.2;margin:0 0 10px}
+  h2{font-size:23px;margin:44px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
+  h3{font-size:17px;margin:26px 0 8px}
+  p{margin:0 0 14px}
+  .lede{font-size:18px;color:var(--muted)}
+  a{color:var(--blue)}
+  code{background:#eef2f7;padding:2px 6px;border-radius:5px;font-size:13px;word-break:break-all}
+  pre{background:var(--navy);color:#dbe6f5;padding:16px;border-radius:10px;overflow:auto;font-size:12.5px;line-height:1.5}
+  pre code{background:none;padding:0;color:inherit}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .callout{background:#fff;border-left:4px solid var(--golddeep);padding:16px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+  .callout.blue{border-left-color:var(--blue)}
+  .callout.warn{border-left-color:#c0392b}
+  ul{margin:0 0 14px;padding-left:20px}
+  li{margin:6px 0}
+  .pill{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:12.5px;color:var(--muted);margin:0 6px 6px 0}
+  footer{margin:60px 0 40px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html">NOOR</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="pay.html">Pay</a>
+      <a href="buy.html">Get NUR</a>
+      <a href="partners.html">Partners</a>
+      <a href="https://github.com/jadjbara3-cpu/noor">Repo</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <h1>Partner brief</h1>
+  <p class="lede">For developers, technical collaborators, content creators and funding programmes. Everything below is verifiable from a public URL. Nothing here is a projection.</p>
+</header>
+
+<h2>The short version</h2>
+<p>A working, source-verified ERC-20 and a live Uniswap v2 market exist on <b>Arc mainnet</b> today. They were built end to end by one person directing an autonomous AI agent, for about eleven cents, and every step is documented including the failures.</p>
+<p>I am looking for <b>two or three people to build the next phase with.</b> Contributors get a stake from the Ecosystem allocation, vested on delivered work. That stake is currently worth almost nothing, and section 5 says exactly how much.</p>
+<div class="callout warn">
+  <p style="margin:0"><b>If you want payment, this is the wrong project</b> and I would rather say so now than waste your time. If you want an early position in a documented, Arc-native build with the groundwork already done, read on.</p>
+</div>
+
+<h2>1. What exists right now</h2>
+<table>
+  <tr><th>Item</th><th>Value</th></tr>
+  <tr><td>Token</td><td><code>0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f</code> — ERC-20, Arc mainnet, chain 5042</td></tr>
+  <tr><td>Supply</td><td>1,000,000,000, fixed in the constructor. <code>remainingMintable()</code> returns 0</td></tr>
+  <tr><td>Verification</td><td><b>Exact match</b> on the Arc explorer (solc 0.8.28, evm cancun, optimizer 200)</td></tr>
+  <tr><td>Market</td><td>Uniswap v2 pair <code>0xa8dC7Eba119949500F8e18fD086a0bF151095910</code></td></tr>
+  <tr><td>Payment app</td><td><a href="pay.html">Noor Pay</a> — no backend, no custody, reads the chain directly</td></tr>
+  <tr><td>Repository</td><td><a href="https://github.com/jadjbara3-cpu/noor">github.com/jadjbara3-cpu/noor</a> — contracts, tests, deploy scripts, every record</td></tr>
+  <tr><td>What it cost</td><td>≈ <b>0.11 USDC</b> from nothing to a verified, indexed, tradeable token</td></tr>
+</table>
+
+<h3>Verify it yourself, in two commands</h3>
+<pre><code>curl -s https://rpc.mainnet.arc.io -X POST -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
+# expect 0x13b2
+
+curl -s https://rpc.mainnet.arc.io -X POST -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x82c9411BBDdafF86F0Ee8E95275256AE136F8c1f","data":"0x18160ddd"},"latest"]}'
+# expect 0x0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000</code></pre>
+<p><code>node scripts/verify-onchain.mjs</code> in the repository re-checks every claim on this page and exits non-zero if any of them stops holding.</p>
+
+<h2>2. Why Arc, stated as facts rather than hope</h2>
+<p>Arc is Circle's Layer 1. Circle issues USDC, and Arc's distinguishing design choices are documented and observable:</p>
+<ul>
+  <li><b>Gas is paid in USDC.</b> There is no separate gas token to acquire before you can transact. For anyone building payment software, that removes an entire class of friction.</li>
+  <li><b>Sub-second finality.</b> Settlement completes faster than a card authorisation.</li>
+  <li><b>No allowlist on the write path.</b> Deployment is permissionless. Verified by signing a transaction before any funding existed, not assumed.</li>
+  <li><b>Native CCTP.</b> USDC moves between Arc and Base, Ethereum, Arbitrum and others without a wrapped asset or a third-party bridge.</li>
+  <li><b>Circle's own programmes.</b> The developer grants programme is active, and the ecosystem has a builder fund and community hub — public facts, checkable at circle.com.</li>
+</ul>
+<div class="callout blue">
+  <p style="margin:0">I am not going to tell you Arc will appreciate, because that is a claim about price and I have no basis for it. What I can say is that the <i>engineering</i> properties above are real, measured on mainnet, and that a chain which makes issuing and moving value this cheap changes what is worth building on it.</p>
+</div>
+
+<h2>3. The genuinely useful asset: six documented findings</h2>
+<p>Nobody pays for a token. People do pay attention to hard-won specifics. Each of these cost hours on Arc mainnet, and all six are written up with the failing transaction:</p>
+<ol>
+  <li>Arc mainnet has no allowlist on the write path.</li>
+  <li>20 gwei is a protocol floor, not a suggestion — below it a transaction can sit pending indefinitely.</li>
+  <li><b>The gas token and the bridged token share one balance.</b> Read-balance → approve → transfer-that-balance reverts, because the read counted the fee you were about to burn. The retry makes it strictly worse: a failed attempt is still a debit.</li>
+  <li>DexScreener and GeckoTerminal index an Arc pair only after the first swap. A live pool is invisible to every router until then.</li>
+  <li><code>token0()</code> returns a 32-byte padded address; comparing it to a bare checksummed address inverts your reserves.</li>
+  <li><code>explorer.arc.io</code> sits behind Cloudflare, so verification must be submitted from a browser.</li>
+</ol>
+<p>Item 3 is, as far as I can tell, undocumented, and it will bite every agent that pays fees and moves value in the same asset.</p>
+
+<h2>4. What I am looking for</h2>
+<h3>A technical collaborator — one person</h3>
+<p>Solidity and TypeScript. The next phase is payment links, invoicing for merchants, and CCTP transfers of NUR across chains. You would own that work end to end, including the contracts.</p>
+<h3>A content or distribution partner — one person</h3>
+<p>Someone who can explain things to developers without hype. There is a real story here — an accountant and an AI agent shipped a currency for eleven cents — and it is being told badly because I am the one telling it.</p>
+<h3>An advisor or introducer — open</h3>
+<p>If you know Arc builders, wallet teams, or merchants who would genuinely benefit from near-free settlement, that is more valuable to this project than code right now.</p>
+
+<h2>5. What contributors get, priced honestly</h2>
+<p>Allocations come from the <b>Ecosystem &amp; Development tranche (10%, 100,000,000 NUR)</b>, already recorded in the published tokenomics.</p>
+<table>
+  <tr><th>Role</th><th class="num">Allocation</th><th>Vested on</th></tr>
+  <tr><td>Technical collaborator</td><td class="num">up to 2,000,000 NUR</td><td>merged, working code</td></tr>
+  <tr><td>Content / distribution</td><td class="num">up to 1,000,000 NUR</td><td>published, accurate work</td></tr>
+  <tr><td>Advisor / introducer</td><td class="num">up to 500,000 NUR</td><td>introductions that lead somewhere</td></tr>
+</table>
+<p><b>What that is worth today, computed rather than implied.</b> The pool price is about 0.00000104 USDC per NUR:</p>
+<ul>
+  <li>2,000,000 NUR ≈ <b>2.08 USDC</b></li>
+  <li>1,000,000 NUR ≈ <b>1.04 USDC</b></li>
+</ul>
+<div class="callout warn">
+  <p style="margin:0">Two dollars. That is the honest number and I am not going to dress it up as an opportunity. <b>This is a stake, not payment.</b> If the project goes nowhere it is worth nothing, and there is no presale, no airdrop, no listing, and no promise of any return.</p>
+</div>
+<p>Why offer it at all, then? Because the alternative is asking for free work, and because if this ever becomes something, the people who built it should have been holding a piece from the beginning rather than being hired later.</p>
+<p>There is a second thing worth more than the allocation: <b>the six findings and the tooling.</b> They are already published and already yours to take, whether you join or not.</p>
+
+<h2>6. What this project does not have</h2>
+<p>Listed plainly, because a brief that only lists strengths is a pitch and not a brief:</p>
+<ul>
+  <li><b>Liquidity.</b> The entire market holds 2.55 USDC. A one-dollar trade moves the price about 40%, and we say so in every post we publish.</li>
+  <li><b>Users.</b> Zero external wallets have traded. The tracker counts them honestly and currently prints 0.</li>
+  <li><b>An audit.</b> No formal verification, no third-party review. The contract is small and deliberately un-upgradeable, and the owner can set a fee up to 5% (currently 0). That is a real centralisation risk and it is in the source, not buried.</li>
+  <li><b>A business model.</b> Payments are the direction, not yet the product.</li>
+  <li><b>A community.</b> One person and one agent, plus a growing set of good technical conversations on Moltbook and Arc House.</li>
+</ul>
+
+<h2>7. How to start</h2>
+<p>Reply to <a href="https://www.moltbook.com/u/nooronarc">@nooronarc on Moltbook</a>, open an issue on <a href="https://github.com/jadjbara3-cpu/noor/issues">the repository</a>, or write to the address that reached you.</p>
+<p>Tell me what you would build, and what you would want to own. I would rather have one person who says <i>“this is stupid, here is what I would do instead”</i> than five who say it looks interesting.</p>
+
+<footer>
+  <p>Noor is an independent project. It is not affiliated with, endorsed by, or sponsored by Circle, Arc, or Uniswap. This page describes software and offers work, not an investment. Nothing here is financial advice and no return is promised or implied.</p>
+  <p><a href="index.html">Home</a> · <a href="buy.html">Get NUR</a> · <a href="pay.html">Pay</a> · <a href="https://github.com/jadjbara3-cpu/noor">GitHub</a></p>
+</footer>
+
+</div>
+</body>
+</html>
